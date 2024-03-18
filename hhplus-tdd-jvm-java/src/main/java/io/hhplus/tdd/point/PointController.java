@@ -14,14 +14,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PointController {
 
-    private final PointService pointService;
+    private final PointService service;
 
     /**
      * TODO - 특정 유저의 포인트를 조회하는 기능을 작성해주세요.
      */
     @GetMapping("{id}")
     public UserPoint point(@PathVariable Long id) {
-        return new UserPoint(0L, 0L, 0L);
+        return service.findPoint(id);
     }
 
     /**
@@ -29,7 +29,7 @@ public class PointController {
      */
     @GetMapping("{id}/histories")
     public List<PointHistory> history(@PathVariable Long id) {
-        return Collections.emptyList();
+        return service.findHistoryList(id);
     }
 
     /**
@@ -37,7 +37,7 @@ public class PointController {
      */
     @PatchMapping("{id}/charge")
     public UserPoint charge(@PathVariable Long id, @RequestBody Long amount) {
-        return new UserPoint(0L, 0L, 0L);
+        return service.charge(id, amount);
     }
 
     /**
@@ -45,6 +45,6 @@ public class PointController {
      */
     @PatchMapping("{id}/use")
     public UserPoint use(@PathVariable Long id, @RequestBody Long amount) {
-        return new UserPoint(0L, 0L, 0L);
+        return service.use(id, amount);
     }
 }

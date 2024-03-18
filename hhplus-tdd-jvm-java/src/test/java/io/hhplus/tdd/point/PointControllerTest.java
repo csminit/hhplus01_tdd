@@ -9,6 +9,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
+import static org.assertj.core.api.AssertionsForClassTypes.anyOf;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
@@ -24,22 +25,26 @@ class PointControllerTest {
     @Autowired
     private UserPointTable userPointTable;
 
+    private static final String LOCAL_HOST = "http://localhost:";
+    private static final String PATH = "/point";
+
     @BeforeEach
     void setup() {
         // 유저 포인트 데이터 생성
-//        UserPoint userPoint = new UserPoint(1L, 100L, System.currentTimeMillis());
+        userPointTable.insertOrUpdate(1L, 1000L);
     }
 
     @Test
-    void point() {
+    void 특정_유저의_포인트를_조회() {
         // given
         Long id = 1L;
 
         // when
-        ResponseEntity<UserPoint> response = restTemplate.getForEntity("http://localhost:" + port + "/point/" + id, UserPoint.class);
+        ResponseEntity<UserPoint> response = restTemplate.getForEntity(LOCAL_HOST + port + PATH + "/" + id, UserPoint.class);
 
         // then
-        assertThat(response.getBody()).isEqualTo(new UserPoint(0L, 0L, 0L));
+        assertThat(response.getBody().id()).isEqualTo(1L);
+        assertThat(response.getBody().point()).isEqualTo(1000L);
     }
 
     @Test
