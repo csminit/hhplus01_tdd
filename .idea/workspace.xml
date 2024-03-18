@@ -4,44 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88c5a006-5183-4726-ab14-f32e09fe9501" name="Changes" comment="feat: 구조 파악 및 통합테스트 구현">
-      <change afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/exception/PointException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/service/PointServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/database/PointHistoryTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/database/PointHistoryTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/database/UserPointTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/database/UserPointTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/PointController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/PointController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/PointHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/PointHistory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/UserPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/UserPoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/service/PointService.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/main/io/hhplus/tdd/point/service/PointService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/test/io/hhplus/tdd/point/PointControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/classes/java/test/io/hhplus/tdd/point/PointControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/jacoco/test.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/reports/tests/test/classes/io.hhplus.tdd.point.PointControllerTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/reports/tests/test/packages/io.hhplus.tdd.point.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/TEST-io.hhplus.tdd.point.PointControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/database/UserPointTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/PointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/PointController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/PointHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/PointHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/UserPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/UserPoint.java" afterDir="false" />
+    <list default="true" id="88c5a006-5183-4726-ab14-f32e09fe9501" name="Changes" comment="feat: PointService, PointServiceTest 작성">
       <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/PointService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +256,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.PointServiceTest" />
-        <item itemvalue="Gradle.PointServiceTest.특정_유저의_포인트_충전_이용_내역_조회" />
         <item itemvalue="Gradle.PointServiceTest.유저가_포인트_충전하면_포인트_충전_내역_추가" />
         <item itemvalue="Gradle.PointServiceTest.특정_유저가_포인트_사용하면_포인트_이용_내역_추가" />
         <item itemvalue="Gradle.PointServiceTest.특정_유저의_포인트_사용_완료" />
@@ -311,6 +274,7 @@
       <workItem from="1710681902028" duration="287000" />
       <workItem from="1710682201429" duration="9423000" />
       <workItem from="1710765625866" duration="7432000" />
+      <workItem from="1710773702620" duration="682000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 구조 파악 및 통합테스트 구현">
       <created>1710686791572</created>
@@ -326,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710686824265</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: PointService, PointServiceTest 작성">
+      <created>1710773768756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710773768756</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +305,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 구조 파악 및 통합테스트 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 구조 파악 및 통합테스트 구현" />
+    <MESSAGE value="feat: PointService, PointServiceTest 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: PointService, PointServiceTest 작성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -120,8 +120,8 @@ class PointServiceTest {
     }
 
     @Test
-    @DisplayName("사용하려는_포인트가_충전되어_있는_금액보다_크면_사용_실패")
-    void useTest_사용하려는_포인트가_충전되어_있는_금액보다_크면_사용_실패() {
+    @DisplayName("사용하려는_포인트가_잔액보다_크면_사용_실패")
+    void useTest_사용하려는_포인트가_잔액보다_크면_사용_실패() {
         // given
         Long id = 1L;
         Long useAmount = 2000L;

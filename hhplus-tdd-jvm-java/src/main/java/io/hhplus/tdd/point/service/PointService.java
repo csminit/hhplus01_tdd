@@ -48,10 +48,10 @@ public class PointService {
             throw new PointException.AmountNotExistException("사용할 포인트는 0원 이상이어야 합니다.");
         }
 
-        // validation - 사용하려는 포인트가 충전된 금액보다 클 수 없음
+        // validation - 사용하려는 포인트가 잔액보다 클 수 없음
         UserPoint currentUserPoint = userPointTable.selectById(id);
         if (currentUserPoint.point() < amount) {
-            throw new PointException.UseAmountExceedChargedException("사용할 포인트는 충전된 금액보다 클 수 없습니다.");
+            throw new PointException.UseAmountExceedChargedException("잔고가 부족합니다.");
         }
 
         // 포인트 사용
