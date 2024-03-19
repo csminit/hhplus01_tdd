@@ -14,11 +14,15 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PointControllerTest {
+
+    // TODO
+    // 1. 통합테스트 patch setting + 실패 케이스도 추가
 
     @LocalServerPort
     private int port;
@@ -49,7 +53,7 @@ class PointControllerTest {
         ResponseEntity<UserPoint> response = restTemplate.getForEntity(LOCAL_HOST + port + PATH + "/" + id, UserPoint.class);
 
         // then
-        assertThat(response.getBody().id()).isEqualTo(1L);
+        assertThat(Objects.requireNonNull(response.getBody()).id()).isEqualTo(1L);
         assertThat(response.getBody().point()).isEqualTo(1000L);
     }
 
@@ -64,11 +68,12 @@ class PointControllerTest {
                 LOCAL_HOST + port + PATH + "/" + id + "/histories",
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<PointHistory>>() {}
+                new ParameterizedTypeReference<>() {
+                }
         );
 
         // then
-        assertThat(response.getBody().size()).isEqualTo(1);
+        assertThat(Objects.requireNonNull(response.getBody()).size()).isEqualTo(1);
         assertThat(response.getBody().get(0).amount()).isEqualTo(1000L);
     }
 
@@ -79,21 +84,22 @@ class PointControllerTest {
         Long id = 1L;
         Long amount = 5000L;
 
+        // TODO : restTemplate - patch setting
         // when
-        // TODO : restTemplate은 patch 지원하지 않음
-        UserPoint response = restTemplate.patchForObject(LOCAL_HOST + port + PATH + "/" + id + "/charge", amount, UserPoint.class);
 
         // then
-        assertThat(response.point()).isEqualTo(6000L);
     }
 
     @Test
     @DisplayName("포인트_사용")
     void useTest_포인트_사용() {
-    }
+        // given
+        Long id = 1L;
+        Long amount = 500L;
 
-    // TODO
-    // 1. 통합테스트 더 마무리 + 실패 케이스도
-    // 2. 동시성 제어 코드 추가
-    // 3. 사전 노트 작성
+        // TODO : restTemplate - patch setting
+        // when
+
+        // then
+    }
 }

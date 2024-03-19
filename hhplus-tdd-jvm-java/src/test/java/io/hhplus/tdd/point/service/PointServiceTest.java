@@ -5,7 +5,7 @@ import io.hhplus.tdd.database.UserPointTable;
 import io.hhplus.tdd.point.PointHistory;
 import io.hhplus.tdd.point.TransactionType;
 import io.hhplus.tdd.point.UserPoint;
-import io.hhplus.tdd.point.exception.PointException;
+import io.hhplus.tdd.point.exception.PointCustomException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ class PointServiceTest {
     @DisplayName("유저_값이_없으면_유저_포인트_조회_실패")
     void findPointTest_유저_값이_없으면_유저_포인트_조회_실패() {
         // when - then
-        assertThrows(PointException.IdNotExistException.class, () -> {
+        assertThrows(PointCustomException.class, () -> {
             pointService.findPoint(null);
         });
     }
@@ -68,7 +68,7 @@ class PointServiceTest {
         Long chargeAmount = 0L;
 
         // when - then
-        assertThrows(PointException.AmountNotExistException.class, () -> {
+        assertThrows(PointCustomException.class, () -> {
             pointService.charge(id, chargeAmount);
         });
     }
@@ -114,7 +114,7 @@ class PointServiceTest {
         Long useAmount = 0L;
 
         // when - then
-        assertThrows(PointException.AmountNotExistException.class, () -> {
+        assertThrows(PointCustomException.class, () -> {
             pointService.use(id, useAmount);
         });
     }
@@ -131,7 +131,7 @@ class PointServiceTest {
         when(userPointTable.selectById(id)).thenReturn(currentUserPoint);
 
         // then
-        assertThrows(PointException.UseAmountExceedChargedException.class, () -> {
+        assertThrows(PointCustomException.class, () -> {
             pointService.use(id, useAmount);
         });
     }
