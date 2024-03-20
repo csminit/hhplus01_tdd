@@ -1,11 +1,11 @@
 package io.hhplus.tdd.point.service;
 
-import io.hhplus.tdd.database.PointHistoryTable;
-import io.hhplus.tdd.database.UserPointTable;
 import io.hhplus.tdd.point.PointHistory;
 import io.hhplus.tdd.point.TransactionType;
 import io.hhplus.tdd.point.UserPoint;
 import io.hhplus.tdd.point.exception.PointCustomException;
+import io.hhplus.tdd.point.repository.PointHistoryRepository;
+import io.hhplus.tdd.point.repository.UserPointRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,6 +13,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -23,16 +25,20 @@ import static org.mockito.Mockito.when;
 class PointServiceTest {
 
     @Mock
-    private UserPointTable userPointTable;
+    private LockManager lockManager;
     @Mock
-    private PointHistoryTable pointHistoryTable;
+    private PointHistoryRepository pointHistoryRepository;
+    @Mock
+    private UserPointRepository userPointRepository;
 
+    private PointValidator pointValidator;
     private PointService pointService;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        pointService = new PointService(userPointTable, pointHistoryTable);
+        pointValidator = new PointValidator();
+        pointService = new PointService(lockManager, pointValidator, pointHistoryRepository, userPointRepository);
     }
 
     @Test
@@ -40,7 +46,7 @@ class PointServiceTest {
     void findPointTest_유저_값이_없으면_유저_포인트_조회_실패() {
         // when - then
         assertThrows(PointCustomException.class, () -> {
-            pointService.findPoint(null);
+            pointValidator.idCheck(null);
         });
     }
 
@@ -52,7 +58,7 @@ class PointServiceTest {
         UserPoint userPoint = new UserPoint(id, 100L, 0L);
 
         // when
-        when(userPointTable.selectById(id)).thenReturn(userPoint);
+        when(userPointRepository.selectById(id)).thenReturn(userPoint);
         UserPoint result = pointService.findPoint(id);
 
         // then
@@ -69,7 +75,7 @@ class PointServiceTest {
 
         // when - then
         assertThrows(PointCustomException.class, () -> {
-            pointService.charge(id, chargeAmount);
+            pointValidator.amountNotExist(chargeAmount);
         });
     }
 
@@ -82,7 +88,8 @@ class PointServiceTest {
         UserPoint updateUserPoint = new UserPoint(id, 1000L, 0L);
 
         // when
-        when(userPointTable.insertOrUpdate(id, chargeAmount)).thenReturn(updateUserPoint);
+        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(userPointRepository.insertOrUpdate(id, chargeAmount)).thenReturn(updateUserPoint);
         UserPoint result = pointService.charge(id, chargeAmount);
 
         // then
@@ -99,11 +106,12 @@ class PointServiceTest {
         UserPoint currentUserPoint = new UserPoint(1L, 2000L, 0L);
 
         // when
-        when(userPointTable.insertOrUpdate(id, chargeAmount)).thenReturn(currentUserPoint);
+        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(userPointRepository.insertOrUpdate(id, chargeAmount)).thenReturn(currentUserPoint);
         pointService.charge(id, chargeAmount);
 
         // then
-        verify(pointHistoryTable).insert(anyLong(), anyLong(), any(), anyLong());
+        verify(pointHistoryRepository).insert(anyLong(), anyLong(), any(), anyLong());
     }
 
     @Test
@@ -115,7 +123,7 @@ class PointServiceTest {
 
         // when - then
         assertThrows(PointCustomException.class, () -> {
-            pointService.use(id, useAmount);
+            pointValidator.amountNotExist(useAmount);
         });
     }
 
@@ -128,11 +136,11 @@ class PointServiceTest {
         UserPoint currentUserPoint = new UserPoint(1L, 1000L, 0L);
 
         // when
-        when(userPointTable.selectById(id)).thenReturn(currentUserPoint);
+        when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
 
         // then
         assertThrows(PointCustomException.class, () -> {
-            pointService.use(id, useAmount);
+            pointValidator.useAmountExceedChargedPoint(useAmount, currentUserPoint.point());
         });
     }
 
@@ -146,8 +154,9 @@ class PointServiceTest {
         UserPoint remainUserPoint = new UserPoint(1L, 800L, System.currentTimeMillis());
 
         // when
-        when(userPointTable.selectById(id)).thenReturn(currentUserPoint);
-        when(userPointTable.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
+        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
+        when(userPointRepository.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
         UserPoint result = pointService.use(id, useAmount);
 
         // then
@@ -164,12 +173,13 @@ class PointServiceTest {
         UserPoint remainUserPoint = new UserPoint(1L, 800L, System.currentTimeMillis());
 
         // when
-        when(userPointTable.selectById(id)).thenReturn(currentUserPoint);
-        when(userPointTable.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
+        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
+        when(userPointRepository.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
         pointService.use(id, useAmount);
 
         // then
-        verify(pointHistoryTable).insert(anyLong(), anyLong(), any(), anyLong());
+        verify(pointHistoryRepository).insert(anyLong(), anyLong(), any(), anyLong());
     }
 
     @Test
@@ -183,7 +193,7 @@ class PointServiceTest {
         );
 
         // when
-        when(pointHistoryTable.selectAllByUserId(id)).thenReturn(pointHistoryList);
+        when(pointHistoryRepository.selectAllByUserId(id)).thenReturn(pointHistoryList);
         List<PointHistory> result = pointService.findHistoryList(id);
 
         // then

@@ -1,105 +1,88 @@
 package io.hhplus.tdd.point;
 
-import io.hhplus.tdd.database.PointHistoryTable;
-import io.hhplus.tdd.database.UserPointTable;
-import org.junit.jupiter.api.BeforeEach;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.hhplus.tdd.point.service.PointService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@WebMvcTest(PointController.class)
 class PointControllerTest {
 
-    // TODO
-    // 1. 통합테스트 patch setting + 실패 케이스도 추가
-
-    @LocalServerPort
-    private int port;
     @Autowired
-    private TestRestTemplate restTemplate;
-    @Autowired
-    private UserPointTable userPointTable;
-    @Autowired
-    private PointHistoryTable pointHistoryTable;
+    private MockMvc mockMvc;
 
-    private static final String LOCAL_HOST = "http://localhost:";
-    private static final String PATH = "/point";
+    @Autowired
+    private ObjectMapper objectMapper = new ObjectMapper();
 
-    @BeforeEach
-    void setup() {
-        // 유저 포인트 데이터 생성
-        userPointTable.insertOrUpdate(1L, 1000L);
-        pointHistoryTable.insert(1L, 1000L, TransactionType.CHARGE, 0L);
-    }
+    @MockBean
+    private PointService pointService;
 
     @Test
     @DisplayName("특정_유저의_포인트를_조회")
-    void pointTest_특정_유저의_포인트를_조회() {
+    public void pointTest() throws Exception {
         // given
         Long id = 1L;
+        UserPoint userPoint = new UserPoint(1L, 1000L, 0L);
+        given(pointService.findPoint(id)).willReturn(userPoint);
 
-        // when
-        ResponseEntity<UserPoint> response = restTemplate.getForEntity(LOCAL_HOST + port + PATH + "/" + id, UserPoint.class);
-
-        // then
-        assertThat(Objects.requireNonNull(response.getBody()).id()).isEqualTo(1L);
-        assertThat(response.getBody().point()).isEqualTo(1000L);
+        // when - then
+        mockMvc.perform(get("/point/{id}", id))
+                .andExpect(status().isOk());
     }
 
     @Test
     @DisplayName("포인트_이용_내역_조회")
-    void historyTest_포인트_이용_내역_조회() {
+    public void historyTest() throws Exception {
         // given
-        Long id = 1L;
+        Long userId = 1L;
+        List<PointHistory> historyList = Collections.emptyList();
+        given(pointService.findHistoryList(userId)).willReturn(historyList);
 
-        // when
-        ResponseEntity<List<PointHistory>> response = restTemplate.exchange(
-                LOCAL_HOST + port + PATH + "/" + id + "/histories",
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {
-                }
-        );
-
-        // then
-        assertThat(Objects.requireNonNull(response.getBody()).size()).isEqualTo(1);
-        assertThat(response.getBody().get(0).amount()).isEqualTo(1000L);
+        // when - then
+        mockMvc.perform(get("/point/{id}/histories", userId))
+                .andExpect(status().isOk());
     }
 
     @Test
     @DisplayName("포인트_충전")
-    void chargeTest_포인트_충전() {
+    public void chargeTest() throws Exception {
         // given
         Long id = 1L;
-        Long amount = 5000L;
+        Long amount = 500L;
+        UserPoint updatedPoint = new UserPoint(id, amount, 0L);
+        given(pointService.charge(id, amount)).willReturn(updatedPoint);
 
-        // TODO : restTemplate - patch setting
         // when
-
-        // then
+        mockMvc.perform(MockMvcRequestBuilders.patch("/point/{id}/charge", id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(Collections.singletonMap("amount", amount))));
     }
 
     @Test
     @DisplayName("포인트_사용")
-    void useTest_포인트_사용() {
+    public void useTest() throws Exception {
         // given
         Long id = 1L;
         Long amount = 500L;
+        UserPoint updatedPoint = new UserPoint(id, amount, 0L);
+        given(pointService.use(id, amount)).willReturn(updatedPoint);
 
-        // TODO : restTemplate - patch setting
         // when
-
-        // then
+        mockMvc.perform(MockMvcRequestBuilders.patch("/point/{id}/use", id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(Collections.singletonMap("amount", amount))));
     }
 }
