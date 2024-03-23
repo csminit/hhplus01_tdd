@@ -32,10 +32,6 @@ class PointIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
     @Autowired
-    private UserPointRepository userPointRepository;
-    @Autowired
-    private PointHistoryRepository pointHistoryRepository;
-    @Autowired
     private PointService pointService;
 
     private static final String LOCAL_HOST = "http://localhost:";
