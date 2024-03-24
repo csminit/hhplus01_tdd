@@ -29,9 +29,7 @@ public class PointService {
     }
 
     public UserPoint charge(Long id, Long amount) {
-        Lock lock = lockManager.getUserLock(id);
-        lock.lock();
-        try {
+        return lockManager.executeWithLock(id, () -> {
             // validation - 충전하려는 포인트가 0원보다 커야 함
             pointValidator.amountNotExist(amount);
 
@@ -41,16 +39,11 @@ public class PointService {
             pointHistoryRepository.insert(id, amount, TransactionType.CHARGE, System.currentTimeMillis());
 
             return userPoint;
-
-        } finally {
-            lock.unlock();
-        }
+        });
     }
 
     public UserPoint use(Long id, Long amount) {
-        Lock lock = lockManager.getUserLock(id);
-        lock.lock();
-        try {
+        return lockManager.executeWithLock(id, () -> {
             // validation - 사용하려는 포인트가 0원보다 커야 함
             pointValidator.amountNotExist(amount);
 
@@ -64,10 +57,7 @@ public class PointService {
             pointHistoryRepository.insert(id, amount, TransactionType.USE, System.currentTimeMillis());
 
             return remainUserPoint;
-
-        } finally {
-            lock.unlock();
-        }
+        });
     }
 
     public List<PointHistory> findHistoryList(Long id) {
