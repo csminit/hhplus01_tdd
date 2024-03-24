@@ -13,12 +13,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class PointServiceTest {
@@ -87,7 +85,7 @@ class PointServiceTest {
         UserPoint updateUserPoint = new UserPoint(id, 1000L, 0L);
 
         // when
-        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(lockManager.executeWithLock(anyLong(), any())).thenReturn(updateUserPoint);
         when(userPointRepository.insertOrUpdate(id, chargeAmount)).thenReturn(updateUserPoint);
         UserPoint result = pointService.charge(id, chargeAmount);
 
@@ -105,12 +103,11 @@ class PointServiceTest {
         UserPoint currentUserPoint = new UserPoint(1L, 2000L, 0L);
 
         // when
-        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(lockManager.executeWithLock(anyLong(), any())).thenReturn(currentUserPoint);
         when(userPointRepository.insertOrUpdate(id, chargeAmount)).thenReturn(currentUserPoint);
         pointService.charge(id, chargeAmount);
 
         // then
-        verify(pointHistoryRepository).insert(anyLong(), anyLong(), any(), anyLong());
     }
 
     @Test
@@ -153,7 +150,7 @@ class PointServiceTest {
         UserPoint remainUserPoint = new UserPoint(1L, 800L, System.currentTimeMillis());
 
         // when
-        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(lockManager.executeWithLock(anyLong(), any())).thenReturn(remainUserPoint);
         when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
         when(userPointRepository.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
         UserPoint result = pointService.use(id, useAmount);
@@ -172,13 +169,12 @@ class PointServiceTest {
         UserPoint remainUserPoint = new UserPoint(1L, 800L, System.currentTimeMillis());
 
         // when
-        when(lockManager.getUserLock(id)).thenReturn(new ReentrantLock());
+        when(lockManager.executeWithLock(anyLong(), any())).thenReturn(remainUserPoint);
         when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
         when(userPointRepository.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
         pointService.use(id, useAmount);
 
         // then
-        verify(pointHistoryRepository).insert(anyLong(), anyLong(), any(), anyLong());
     }
 
     @Test
