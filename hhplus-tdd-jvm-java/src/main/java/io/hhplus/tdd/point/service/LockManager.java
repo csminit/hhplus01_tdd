@@ -1,6 +1,5 @@
 package io.hhplus.tdd.point.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ConcurrentHashMap;

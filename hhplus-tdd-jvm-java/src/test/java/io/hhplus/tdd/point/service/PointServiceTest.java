@@ -39,8 +39,8 @@ class PointServiceTest {
     }
 
     @Test
-    @DisplayName("유저_값이_없으면_유저_포인트_조회_실패")
-    void findPointTest_유저_값이_없으면_유저_포인트_조회_실패() {
+    @DisplayName("유저 값이 없으면 유저 포인트 조회에 실패한다")
+    void failIfUserNotExists() {
         // when - then
         assertThrows(PointCustomException.class, () -> {
             pointValidator.idCheck(null);
@@ -48,10 +48,10 @@ class PointServiceTest {
     }
 
     @Test
-    @DisplayName("특정_유저의_포인트가_있으면_유저_포인트_정보를_리턴")
-    void findPointTest_특정_유저의_포인트가_있으면_유저_포인트_정보를_리턴() {
+    @DisplayName("특정 유저의 포인트가 있으면 유저 포인트 정보를 리턴한다")
+    void returnUserPointInfoWhenUserExists() {
         // given
-        Long id = 1L;
+        long id = 1L;
         UserPoint userPoint = new UserPoint(id, 100L, 0L);
 
         // when
@@ -64,11 +64,10 @@ class PointServiceTest {
     }
 
     @Test
-    @DisplayName("충전하려는_포인트가_0원보다_크지_않으면_충전_실패")
-    void chargeTest_충전하려는_포인트가_0원보다_크지_않으면_충전_실패() {
+    @DisplayName("충전하려는 포인트가 0원보다 크지 않으면 충전에 실패한다")
+    void failToChargeIfAmountIsNotGreaterThanZero() {
         // given
-        Long id = 1L;
-        Long chargeAmount = 0L;
+        long chargeAmount = 0L;
 
         // when - then
         assertThrows(PointCustomException.class, () -> {
@@ -77,11 +76,11 @@ class PointServiceTest {
     }
 
     @Test
-    @DisplayName("유저_ID와_충전할_포인트를_입력하면_포인트_충전")
-    void chargeTest_유저_ID와_충전할_포인트를_입력하면_포인트_충전() {
+    @DisplayName("정상적인 유저 ID와 0원 이상의 충전할 포인트를 입력하면 충전된다")
+    void chargePointWhenUserExistAndAmountIsGreaterThanZero() {
         // given
-        Long id = 1L;
-        Long chargeAmount = 1000L;
+        long id = 1L;
+        long chargeAmount = 1000L;
         UserPoint updateUserPoint = new UserPoint(id, 1000L, 0L);
 
         // when
@@ -91,61 +90,54 @@ class PointServiceTest {
 
         // then
         assertNotNull(result);
-        assertEquals(result.id(), 1L);
-        assertEquals(result.point(), 1000L);
+        assertEquals(result.id(), id);
+        assertEquals(result.point(), chargeAmount);
     }
 
     @Test
-    @DisplayName("유저가_포인트_충전하면_포인트_충전_내역_추가")
-    void chargeTest_유저가_포인트_충전하면_포인트_충전_내역_추가() {
-        Long id = 1L;
-        Long chargeAmount = 2000L;
+    @DisplayName("유저가 포인트를 충전하면 포인트 충전 내역이 추가된다")
+    void addPointHistoryWhenChargeUserPoint() {
+        long id = 1L;
+        long chargeAmount = 2000L;
         UserPoint currentUserPoint = new UserPoint(1L, 2000L, 0L);
 
         // when
         when(lockManager.executeWithLock(anyLong(), any())).thenReturn(currentUserPoint);
         when(userPointRepository.insertOrUpdate(id, chargeAmount)).thenReturn(currentUserPoint);
         pointService.charge(id, chargeAmount);
-
-        // then
     }
 
     @Test
-    @DisplayName("사용하려는_포인트가_0원보다_크지_않으면_사용_실패")
-    void useTest_사용하려는_포인트가_0원보다_크지_않으면_사용_실패() {
+    @DisplayName("사용하려는 포인트가 0원보다 크지 않으면 사용에 실패한다")
+    void failToUseIfUseAmountIsNotGreaterThanZero() {
         // given
-        Long id = 1L;
         Long useAmount = 0L;
 
         // when - then
-        assertThrows(PointCustomException.class, () -> {
-            pointValidator.amountNotExist(useAmount);
-        });
+        assertThrows(PointCustomException.class, () -> pointValidator.amountNotExist(useAmount));
     }
 
     @Test
-    @DisplayName("사용하려는_포인트가_잔액보다_크면_사용_실패")
-    void useTest_사용하려는_포인트가_잔액보다_크면_사용_실패() {
+    @DisplayName("사용하려는 포인트가 현재 잔액보다 크면 사용에 실패한다")
+    void failToUseIfUseAmountIsNotGreaterThanCurrentUserPoint() {
         // given
-        Long id = 1L;
-        Long useAmount = 2000L;
+        long id = 1L;
+        long useAmount = 2000L;
         UserPoint currentUserPoint = new UserPoint(1L, 1000L, 0L);
 
         // when
         when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
 
         // then
-        assertThrows(PointCustomException.class, () -> {
-            pointValidator.useAmountExceedChargedPoint(useAmount, currentUserPoint.point());
-        });
+        assertThrows(PointCustomException.class, () -> pointValidator.useAmountExceedChargedPoint(useAmount, currentUserPoint.point()));
     }
 
     @Test
-    @DisplayName("특정_유저의_포인트_사용_완료")
-    void useTest_특정_유저의_포인트_사용_완료() {
+    @DisplayName("유저 잔액 내의 포인트를 사용한다")
+    void useWhenGivenUserIdAndAmount() {
         // given
-        Long id = 1L;
-        Long useAmount = 200L;
+        long id = 1L;
+        long useAmount = 200L;
         UserPoint currentUserPoint = new UserPoint(1L, 1000L, 0L);
         UserPoint remainUserPoint = new UserPoint(1L, 800L, System.currentTimeMillis());
 
@@ -161,10 +153,10 @@ class PointServiceTest {
     }
 
     @Test
-    @DisplayName("특정_유저가_포인트_사용하면_포인트_이용_내역_추가")
-    void useTest_특정_유저가_포인트_사용하면_포인트_이용_내역_추가() {
-        Long id = 1L;
-        Long useAmount = 200L;
+    @DisplayName("유저가 포인트를 사용하면 포인트 이용 내역을 추가한다")
+    void addPointHistoryWhenUserUsePoint() {
+        long id = 1L;
+        long useAmount = 200L;
         UserPoint currentUserPoint = new UserPoint(1L, 1000L, 0L);
         UserPoint remainUserPoint = new UserPoint(1L, 800L, System.currentTimeMillis());
 
@@ -173,15 +165,13 @@ class PointServiceTest {
         when(userPointRepository.selectById(id)).thenReturn(currentUserPoint);
         when(userPointRepository.insertOrUpdate(currentUserPoint.id(), currentUserPoint.point() - useAmount)).thenReturn(remainUserPoint);
         pointService.use(id, useAmount);
-
-        // then
     }
 
     @Test
-    @DisplayName("특정_유저의_포인트_충전_이용_내역_조회")
-    void findHistoryListTest_특정_유저의_포인트_충전_이용_내역_조회() {
+    @DisplayName("유저의 포인트 이용 내역을 조회한다")
+    void getPointHistoryWhenUserExists() {
         // given
-        Long id = 1L;
+        long id = 1L;
         List<PointHistory> pointHistoryList = List.of(
                 new PointHistory(1L, 1L, 1000L, TransactionType.CHARGE, 0L),
                 new PointHistory(2L, 1L, 300L, TransactionType.USE, 1L)

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PointValidator {
 
-    // id 값 존재 체크
+    // id 값 존재 확인
     void idCheck(Long id) {
         if (id == null) {
             throw new PointCustomException("유저 정보를 입력해 주세요.");

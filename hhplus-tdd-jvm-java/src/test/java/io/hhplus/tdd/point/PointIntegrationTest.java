@@ -1,11 +1,6 @@
 package io.hhplus.tdd.point;
 
-import io.hhplus.tdd.database.PointHistoryTable;
-import io.hhplus.tdd.database.UserPointTable;
-import io.hhplus.tdd.point.repository.PointHistoryRepository;
-import io.hhplus.tdd.point.repository.UserPointRepository;
 import io.hhplus.tdd.point.service.PointService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +33,12 @@ class PointIntegrationTest {
     private static final String PATH = "/point";
 
     @Test
-    @DisplayName("동시에_여러개의_요청이_들어와도_잘_처리")
-    void pointTest_동시에_여러개의_요청이_들어와도_잘_처리() throws ExecutionException, InterruptedException {
-        Long userId = 1L; // 테스트를 위한 사용자 ID 가정
-        Long initialAmount = 10000L; // 초기 충전 금액
-        Long chargeAmount = 1000L; // 충전 금액
-        Long useAmount = 500L; // 사용 금액
+    @DisplayName("동시에 들어오는 다수의 충전 및 사용 요청을 처리한다")
+    void chargeAndUseIfRequestAtTheSameTime() throws ExecutionException, InterruptedException {
+        long userId = 1L; // 테스트를 위한 사용자 ID 가정
+        long initialAmount = 10000L; // 초기 충전 금액
+        long chargeAmount = 1000L; // 충전 금액
+        long useAmount = 500L; // 사용 금액
         int numberOfTasks = 100; // 충전과 사용을 각각 수행할 작업 수
 
         // 초기 포인트 충전
@@ -86,10 +81,10 @@ class PointIntegrationTest {
     }
 
     @Test
-    @DisplayName("특정_유저의_포인트를_조회")
-    void pointTest_특정_유저의_포인트를_조회() {
+    @DisplayName("특정 유저의 포인트를 조회한다")
+    void getPointWhenUserExist() {
         // given
-        Long id = 1L;
+        long id = 1L;
 
         // when
         ResponseEntity<UserPoint> response = restTemplate.getForEntity(LOCAL_HOST + port + PATH + "/" + id, UserPoint.class);
@@ -100,10 +95,10 @@ class PointIntegrationTest {
     }
 
     @Test
-    @DisplayName("포인트_이용_내역_조회")
-    void historyTest_포인트_이용_내역_조회() {
+    @DisplayName("포인트 이용 내역을 조회한다")
+    void getPointHistory() {
         // given
-        Long id = 1L;
+        long id = 1L;
 
         // when
         ResponseEntity<List<PointHistory>> response = restTemplate.exchange(

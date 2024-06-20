@@ -5,7 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88c5a006-5183-4726-ab14-f32e09fe9501" name="Changes" comment="feat: PointService, PointServiceTest 작성">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/hhplus-tdd-jvm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/hhplus-tdd-jvm.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/io.hhplus.hhplus-tdd-jvm.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/007b0cc5f6b909b46cc2e38f4f0a56d110ef4259" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/1040909f05b0476f1633f870f7601205620a2b86" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/2/22c2d8f3b116ec9a4705305130340f32a92e1a36" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/3/232414f3ca1bb3af1b9b4a3e4bf154b6b8d96f4b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/2/326d87edcef25a2e7792a8c4df4c5419ce8ed476" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/60591902bcadc05bb9c5e4988da67b1b178e6204" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/607388f3ef1c5a9dbc96129d5f13a77ca40e224f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7c9b6efb81feddd859affbe5c31ea017517b831d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/a/9ac36d7ca95e3cd898b05502497233df2bcb28c8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/f/aff00ca7d5146bef5f43528b81f74ae230241411" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/f/ff36881de397637725ea77e51f79eacbb7d8f28b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/0/007b0cc5f6b909b46cc2e38f4f0a56d110ef4259" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/0/1040909f05b0476f1633f870f7601205620a2b86" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/2/22c2d8f3b116ec9a4705305130340f32a92e1a36" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/3/232414f3ca1bb3af1b9b4a3e4bf154b6b8d96f4b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/2/326d87edcef25a2e7792a8c4df4c5419ce8ed476" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/0/60591902bcadc05bb9c5e4988da67b1b178e6204" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/0/607388f3ef1c5a9dbc96129d5f13a77ca40e224f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/c/7c9b6efb81feddd859affbe5c31ea017517b831d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/a/9ac36d7ca95e3cd898b05502497233df2bcb28c8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/f/aff00ca7d5146bef5f43528b81f74ae230241411" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/f/ff36881de397637725ea77e51f79eacbb7d8f28b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hhplus01_tdd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hhplus01_tdd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/hhplus-tdd-jvm.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/hhplus-tdd-jvm.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/8.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/ApiControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/ApiControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/LockManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/LockManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/PointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/PointValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/main/java/io/hhplus/tdd/point/service/PointValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/PointIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/PointIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/service/PointServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hhplus-tdd-jvm-java/src/test/java/io/hhplus/tdd/point/service/PointServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,39 +72,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="hhplus-tdd-jvm" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -88,31 +98,41 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2dofhCWkMg1LICXQp7LdWlqRcsb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.customizations&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;83ea2856b5cabf48a42963e09174adba&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/cseun/hhplus/hhplus01_tdd",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.customizations",
+    "show.migrate.to.gradle.popup": "false",
+    "spring.configuration.checksum": "83ea2856b5cabf48a42963e09174adba",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -152,6 +172,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="PointServiceTest.특정_유저의_포인트_사용_완료" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -175,6 +196,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="PointServiceTest.유저가_포인트_충전하면_포인트_충전_내역_추가" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -198,6 +220,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="PointServiceTest.특정_유저의_포인트_충전_이용_내역_조회" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -244,10 +267,11 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="TddApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="hhplus-tdd-jvm.main" />
+      <module name="io.hhplus.hhplus-tdd-jvm.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="io.hhplus.tdd.TddApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -262,6 +286,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -275,6 +307,8 @@
       <workItem from="1710682201429" duration="9423000" />
       <workItem from="1710765625866" duration="7432000" />
       <workItem from="1710773702620" duration="682000" />
+      <workItem from="1711339727516" duration="2753000" />
+      <workItem from="1718850916990" duration="8561000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 구조 파악 및 통합테스트 구현">
       <created>1710686791572</created>

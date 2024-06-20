@@ -31,8 +31,8 @@ class PointControllerTest {
     private PointService pointService;
 
     @Test
-    @DisplayName("특정_유저의_포인트를_조회")
-    public void pointTest() throws Exception {
+    @DisplayName("특정 유저의 포인트를 조회")
+    void pointTest() throws Exception {
         // given
         Long id = 1L;
         UserPoint userPoint = new UserPoint(1L, 1000L, 0L);
@@ -44,8 +44,8 @@ class PointControllerTest {
     }
 
     @Test
-    @DisplayName("포인트_이용_내역_조회")
-    public void historyTest() throws Exception {
+    @DisplayName("포인트 이용 내역 조회")
+    void historyTest() throws Exception {
         // given
         Long userId = 1L;
         List<PointHistory> historyList = Collections.emptyList();
@@ -57,8 +57,8 @@ class PointControllerTest {
     }
 
     @Test
-    @DisplayName("포인트_충전")
-    public void chargeTest() throws Exception {
+    @DisplayName("포인트 충전")
+    void chargeTest() throws Exception {
         // given
         Long id = 1L;
         Long amount = 500L;
@@ -72,8 +72,8 @@ class PointControllerTest {
     }
 
     @Test
-    @DisplayName("포인트_사용")
-    public void useTest() throws Exception {
+    @DisplayName("포인트 사용")
+    void useTest() throws Exception {
         // given
         Long id = 1L;
         Long amount = 500L;
