@@ -33,7 +33,8 @@ public class PointService {
             pointValidator.amountNotExist(amount);
 
             // 포인트 충전
-            UserPoint userPoint = userPointRepository.insertOrUpdate(id, amount);
+            UserPoint currentUserPoint = userPointRepository.selectById(id);
+            UserPoint userPoint = userPointRepository.insertOrUpdate(id, currentUserPoint.point() + amount);
             // 포인트 충전 내역 추가
             pointHistoryRepository.insert(id, amount, TransactionType.CHARGE, System.currentTimeMillis());
 
